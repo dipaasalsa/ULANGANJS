@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Anak Ayam Turun</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .ayam-line {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let output = document.getElementById("output");
+
+        for (let i = 10; i >= 1; i--) {
+            if (i === 1) {
+                output.innerHTML += `Anak Ayam turun ${i}, mati satu<br>`;
+            } else {
+                output.innerHTML += `Anak Ayam turun ${i}, mati satu, tinggal ${i-1}<br>`;
+            }
+        }
+    });
+</script>
+
+    <div id="output"></div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Kembalian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 50px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="input-group">
+    <label for="harga">Harga Barang:</label>
+    <input type="number" id="harga" min="0" required>
+</div>
+
+<div class="input-group">
+    <label for="uang">Jumlah Uang:</label>
+    <input type="number" id="uang" min="0" required>
+</div>
+
+<button onclick="hitungKembalian()">Hitung Kembalian</button>
+
+<div class="result-box" id="result-box">
+    <h1>Hasil Kembalian</h1>
+    <div id="result"></div>
+</div>
+
+<script>
+function hitungKembalian() {
+    let harga = parseFloat(document.getElementById("harga").value);
+    let uang = parseFloat(document.getElementById("uang").value);
+    let kembalian = uang - harga;
+
+    let resultElement = document.getElementById("result");
+    let resultBox = document.getElementById("result-box");
+
+    if (isNaN(harga) || isNaN(uang) || harga < 0 || uang < 0) {
+        resultElement.innerHTML = "Mohon masukkan angka yang valid.";
+        resultBox.style.backgroundColor = "#ffc6c6";
+    } else if (kembalian < 0) {
+        resultElement.innerHTML = "Uang yang diberikan kurang.";
+        resultBox.style.backgroundColor = "#ffc6c6";
+    } else {
+        resultElement.innerHTML = `Kembalian: ${kembalian.toFixed(2)} `;
+        resultBox.style.backgroundColor = "#c6ffc6";
+    }
+}
+</script>
+
+</body>
+</html>

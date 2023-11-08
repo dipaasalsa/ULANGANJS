@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <title>Pengecekan Usia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 50px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Pengecekan Usia</h1>
+    <p>Masukkan usia Anda:</p>
+    <input type="text" id="usiaInput">
+    <button onclick="cekUsia()">Cek Usia</button>
+    <p id="hasilPesan"></p>
+
+    <script>
+        function cekUsia() {
+            var usia = parseInt(document.getElementById("usiaInput").value);
+            var hasilPesan = document.getElementById("hasilPesan");
+
+            if (usia < 3) {
+                hasilPesan.innerHTML = "Balita tidak boleh menonton ke bioskop.";
+            } else if (usia >= 0 && usia < 3) {
+                hasilPesan.innerHTML = "bayi tidak boleh menonton ke bioskop.";
+            } else if (usia >= 4 && usia < 11) {
+                hasilPesan.innerHTML = "anak-anak boleh menonton ke bioskop.";
+            } else if (usia >= 12 && usia < 25) {
+                hasilPesan.innerHTML = "Remaja boleh menonton ke bioskop.";
+            } else if (usia >= 26 && usia < 45 ){
+                hasilPesan.innerHTML = "Dewasa boleh menonton ke bioskop.";
+            } else if (usia >= 46 && usia < 65 ){
+                hasilPesan.innerHTML = "Orang Tua menonton ke Bioskop";
+            } else if (usia >= 65 && usia < 99999999999 ){
+                hasilPesan.innerHTML = "Lansia tidak boleh menonton bioskop";
+            }
+        }
+    </script>
+</body>
+</html>

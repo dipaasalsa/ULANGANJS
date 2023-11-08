@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Keliling Trapezium</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 50px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="input-group">
+    <label for="sisiA">Panjang Sisi A:</label>
+    <input type="number" id="sisiA" min="0" required>
+</div>
+
+<div class="input-group">
+    <label for="sisiB">Panjang Sisi B:</label>
+    <input type="number" id="sisiB" min="0" required>
+</div>
+
+<div class="input-group">
+    <label for="sisiC">Panjang Sisi C:</label>
+    <input type="number" id="sisiC" min="0" required>
+</div>
+
+<div class="input-group">
+    <label for="sisiD">Panjang Sisi D:</label>
+    <input type="number" id="sisiD" min="0" required>
+</div>
+
+<button onclick="hitungKeliling()">Hitung Keliling</button>
+
+<div class="result-box" id="result-box">
+    <h1>Hasil Keliling</h1>
+    <div id="result"></div>
+</div>
+
+<script>
+function hitungKeliling() {
+    let sisiA = parseFloat(document.getElementById("sisiA").value);
+    let sisiB = parseFloat(document.getElementById("sisiB").value);
+    let sisiC = parseFloat(document.getElementById("sisiC").value);
+    let sisiD = parseFloat(document.getElementById("sisiD").value);
+
+    let keliling = sisiA + sisiB + sisiC + sisiD;
+
+    let resultElement = document.getElementById("result");
+    let resultBox = document.getElementById("result-box");
+
+    if (isNaN(keliling) || sisiA < 0 || sisiB < 0 || sisiC < 0 || sisiD < 0) {
+        resultElement.innerHTML = "Mohon masukkan angka yang valid.";
+        resultBox.style.backgroundColor = "#ffc6c6";
+    } else {
+        resultElement.innerHTML = `Keliling trapezium adalah ${keliling}`;
+        resultBox.style.backgroundColor = "#c6ffc6";
+    }
+}
+</script>
+
+</body>
+</html>
